@@ -7,13 +7,14 @@ const Signin = ({ setToken, name, roomName, setName, setRoomName }) => {
     console.log('Name:: ', name);
     console.log('Room', roomName);
 
-    const result = await axios.post('https://video-call-app-7909-dev.twil.io/video-token', {
+    await axios.post('https://video-call-app-7909-dev.twil.io/video-token', {
       identity: name,
       room: roomName,
+    }).then( response => {
+      console.log('response: ', response.data)
+      setToken(response.data);
     });
-
-    console.log('TOKEN:: ', result.data);
-    setToken(result.data);
+    
   };
 
   return (
