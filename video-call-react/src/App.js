@@ -14,7 +14,7 @@ function App() {
       {!token ? (
         <Signin setToken={setToken} name={name} roomName={roomName} setName={setName} setRoomName={setRoomName} />
       ) : (
-        <TwilioVideos room={room} token={token} />
+        <TwilioVideos room={roomName} token={token} />
       )}
     </div>
   );
